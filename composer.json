@@ -14,7 +14,8 @@
         }
     ],
     "autoload": { "psr-4": {
-        "Memio\\PrettyPrinter\\": "src/Memio/PrettyPrinter"
+        "Memio\\PrettyPrinter\\": "src/Memio/PrettyPrinter",
+        "Memio\\PrettyPrinter\\Config": "config",
     }},
     "require": {
         "memio/model": "~1.0",

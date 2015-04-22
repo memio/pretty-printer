@@ -1,4 +1,4 @@
-# Memio's PrettyPrinter [![SensioLabsInsight](https://insight.sensiolabs.com/projects/a2b24423-9840-45ab-a011-598aa3ba26bf/mini.png)](https://insight.sensiolabs.com/projects/a2b24423-9840-45ab-a011-598aa3ba26bf) [![Travis CI](https://travis-ci.org/memio/pretty-printer.png)](https://travis-ci.org/memio/pretty-printer)
+# Memio's PrettyPrinter [![SensioLabsInsight](https://insight.sensiolabs.com/projects/c8194cd1-0f80-4bce-9ab2-8368db5411b3/mini.png)](https://insight.sensiolabs.com/projects/c8194cd1-0f80-4bce-9ab2-8368db5411b3) [![Travis CI](https://travis-ci.org/memio/pretty-printer.png)](https://travis-ci.org/memio/pretty-printer)
 
 `PrettyPrinter` is a code generator (printer) that takes a Model and calls the
 appropriate `TemplateEngine` to actually generate the corresponding code,
@@ -25,7 +25,7 @@ We're going to generate a class with a constructor and two attributes:
 
 require __DIR__.'/vendor/autoload.php';
 
-use Memio\Memio\PrettyPrinter;
+use Memio\PrettyPrinter\PrettyPrinter;
 use Memio\Model\File;
 use Memio\Model\Object;
 use Memio\Model\Property;
@@ -33,7 +33,7 @@ use Memio\Model\Method;
 use Memio\Model\Argument;
 
 // Initialize the code generator
-$loader = new \Twig_Loader_Filesystem(__DIR__.'/vendor/memio/pretty-printer/templates');
+$loader = new \Twig_Loader_Filesystem(__DIR__.'/templates');
 $twig = new \Twig_Environment($loader);
 $prettyPrinter = new PrettyPrinter($twig);
 
