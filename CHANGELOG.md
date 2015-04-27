@@ -1,9 +1,19 @@
 # CHANGELOG
 
-## 1.0.0-rc-2: Locate
+## 1.0.0-rc3: TemplateEngine
 
-* Created Locate to simplify template localization
+* created TwigTemplateEngine
+* created TemplateEngine
+* renamed PrettyPrinterStrategy to CodeGenerator
 
-## 1.0.0-rc-1: Import
+> **BC breaks**:
+>
+> * `PrettyPrinter`'s constructor now takes a `TemplateEngine`.
+
+## 1.0.0-rc2: Locate
+
+* created Locate to simplify template localization
+
+## 1.0.0-rc1: Import
 
 * imported pretty printer from [memio/memio](http://github.com/memio/memio) v1.0.0-rc10
