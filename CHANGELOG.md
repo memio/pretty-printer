@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.0.0-rc4: Fixed TwigTemplateEngine
+
+* added missing return statement
+
 ## 1.0.0-rc3: TemplateEngine
 
 * created TwigTemplateEngine
