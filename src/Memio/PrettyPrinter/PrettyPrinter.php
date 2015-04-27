@@ -29,6 +29,11 @@ class PrettyPrinter
     private $codeGenerators = array();
 
     /**
+     * @var TemplateEngine
+     */
+    private $templateEngine;
+
+    /**
      * @param TemplateEngine $templateEngine
      *
      * @api
@@ -40,6 +45,18 @@ class PrettyPrinter
         $this->codeGenerators[] = new ModelCollectionCodeGenerator($templateEngine);
         $this->codeGenerators[] = new PhpdocCodeGenerator($templateEngine);
         $this->codeGenerators[] = new ModelCodeGenerator($templateEngine);
+
+        $this->templateEngine = $templateEngine;
+    }
+
+    /**
+     * @param string $templatePath
+     *
+     * @api
+     */
+    public function addTemplatePath($templatePath)
+    {
+        $this->templateEngine->addPath($templatePath);
     }
 
     /**

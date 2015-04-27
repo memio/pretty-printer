@@ -19,9 +19,18 @@ use PhpSpec\ObjectBehavior;
 
 class PrettyPrinterSpec extends ObjectBehavior
 {
+    const TEMPLATE_PATH = '/tmp/templates';
+
     function let(TemplateEngine $templateEngine)
     {
         $this->beConstructedWith($templateEngine);
+    }
+
+    function it_allows_template_over_loading(TemplateEngine $templateEngine)
+    {
+        $templateEngine->addPath(self::TEMPLATE_PATH)->shouldBeCalled();
+
+        $this->addTemplatePath(self::TEMPLATE_PATH);
     }
 
     function it_handles_one_worded_model_class_names(TemplateEngine $templateEngine)

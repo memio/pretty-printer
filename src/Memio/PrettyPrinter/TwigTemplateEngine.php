@@ -31,6 +31,14 @@ class TwigTemplateEngine implements TemplateEngine
     /**
      * {@inheritDoc}
      */
+    public function addPath($path)
+    {
+        $this->twig->getLoader()->addPath($path);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     public function render($template, array $parameters = array())
     {
         return $this->twig->render($template.'.twig', $parameters);
