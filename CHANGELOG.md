@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 1.0.0-rc5: Allowed template over loading
+
+* added `PrettyPrinter#addTemplatePath`
+* added `TemplateEngine#addPath`
+
 ## 1.0.0-rc4: Fixed TwigTemplateEngine
 
 * added missing return statement
