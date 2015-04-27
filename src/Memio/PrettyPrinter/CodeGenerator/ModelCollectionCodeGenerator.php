@@ -9,12 +9,12 @@
  * file that was distributed with this source code.
  */
 
-namespace Memio\PrettyPrinter\PrettyPrinter;
+namespace Memio\PrettyPrinter\CodeGenerator;
 
 use Memio\Model\FullyQualifiedName;
 use Twig_Environment;
 
-class ModelPrettyPrinter implements PrettyPrinterStrategy
+class ModelCollectionCodeGenerator implements CodeGenerator
 {
     /**
      * @var Twig_Environment
@@ -34,10 +34,14 @@ class ModelPrettyPrinter implements PrettyPrinterStrategy
      */
     public function supports($model)
     {
-        if (!is_object($model)) {
+        if (!is_array($model)) {
             return false;
         }
-        $fqcn = get_class($model);
+        $firstElement = current($model);
+        if (!is_object($firstElement)) {
+            return false;
+        }
+        $fqcn = get_class($firstElement);
 
         return 1 === preg_match('/^Memio\\\\Model\\\\/', $fqcn);
     }
@@ -47,11 +51,12 @@ class ModelPrettyPrinter implements PrettyPrinterStrategy
      */
     public function generateCode($model, array $parameters = array())
     {
-        $fqcn = get_class($model);
+        $firstElement = current($model);
+        $fqcn = get_class($firstElement);
         $name = FullyQualifiedName::make($fqcn)->getName();
-        $modelName = strtolower(preg_replace('/([a-z])([A-Z])/', '$1_$2', $name));
+        $modelName = strtolower(preg_replace('/([a-z])([A-Z])/', '$1_$2', $name)).'_collection';
         $parameters[$modelName] = $model;
 
-        return $this->twig->render($modelName.'.twig', $parameters);
+        return $this->twig->render('collection/'.$modelName.'.twig', $parameters);
     }
 }

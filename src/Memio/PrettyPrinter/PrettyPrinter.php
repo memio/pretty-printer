@@ -12,11 +12,11 @@
 namespace Memio\PrettyPrinter;
 
 use Memio\PrettyPrinter\Exception\InvalidArgumentException;
-use Memio\PrettyPrinter\PrettyPrinter\EmptyCollectionPrettyPrinter;
-use Memio\PrettyPrinter\PrettyPrinter\ModelCollectionPrettyPrinter;
-use Memio\PrettyPrinter\PrettyPrinter\ModelPrettyPrinter;
-use Memio\PrettyPrinter\PrettyPrinter\PhpdocCollectionPrettyPrinter;
-use Memio\PrettyPrinter\PrettyPrinter\PhpdocPrettyPrinter;
+use Memio\PrettyPrinter\CodeGenerator\EmptyCollectionCodeGenerator;
+use Memio\PrettyPrinter\CodeGenerator\ModelCollectionCodeGenerator;
+use Memio\PrettyPrinter\CodeGenerator\ModelCodeGenerator;
+use Memio\PrettyPrinter\CodeGenerator\PhpdocCollectionCodeGenerator;
+use Memio\PrettyPrinter\CodeGenerator\PhpdocCodeGenerator;
 use Memio\PrettyPrinter\TwigExtension\Line\ContractLineStrategy;
 use Memio\PrettyPrinter\TwigExtension\Line\FileLineStrategy;
 use Memio\PrettyPrinter\TwigExtension\Line\Line;
@@ -35,7 +35,7 @@ class PrettyPrinter
     /**
      * @var array
      */
-    private $strategies = array();
+    private $codeGenerators = array();
 
     /**
      * @param Twig_Environment $twig
@@ -54,11 +54,11 @@ class PrettyPrinter
         $twig->addExtension(new Type());
         $twig->addExtension(new Whitespace($line));
 
-        $this->strategies[] = new EmptyCollectionPrettyPrinter();
-        $this->strategies[] = new PhpdocCollectionPrettyPrinter($twig);
-        $this->strategies[] = new ModelCollectionPrettyPrinter($twig);
-        $this->strategies[] = new PhpdocPrettyPrinter($twig);
-        $this->strategies[] = new ModelPrettyPrinter($twig);
+        $this->codeGenerators[] = new EmptyCollectionCodeGenerator();
+        $this->codeGenerators[] = new PhpdocCollectionCodeGenerator($twig);
+        $this->codeGenerators[] = new ModelCollectionCodeGenerator($twig);
+        $this->codeGenerators[] = new PhpdocCodeGenerator($twig);
+        $this->codeGenerators[] = new ModelCodeGenerator($twig);
     }
 
     /**
@@ -73,9 +73,9 @@ class PrettyPrinter
      */
     public function generateCode($model, array $parameters = array())
     {
-        foreach ($this->strategies as $strategy) {
-            if ($strategy->supports($model, $parameters)) {
-                return $strategy->generateCode($model, $parameters);
+        foreach ($this->codeGenerators as $codeGenerator) {
+            if ($codeGenerator->supports($model, $parameters)) {
+                return $codeGenerator->generateCode($model, $parameters);
             }
         }
 

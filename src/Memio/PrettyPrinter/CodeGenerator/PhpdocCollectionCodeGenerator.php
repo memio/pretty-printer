@@ -9,12 +9,12 @@
  * file that was distributed with this source code.
  */
 
-namespace Memio\PrettyPrinter\PrettyPrinter;
+namespace Memio\PrettyPrinter\CodeGenerator;
 
 use Memio\Model\FullyQualifiedName;
 use Twig_Environment;
 
-class ModelCollectionPrettyPrinter implements PrettyPrinterStrategy
+class PhpdocCollectionCodeGenerator implements CodeGenerator
 {
     /**
      * @var Twig_Environment
@@ -43,7 +43,7 @@ class ModelCollectionPrettyPrinter implements PrettyPrinterStrategy
         }
         $fqcn = get_class($firstElement);
 
-        return 1 === preg_match('/^Memio\\\\Model\\\\/', $fqcn);
+        return 1 === preg_match('/^Memio\\\\Model\\\\Phpdoc\\\\/', $fqcn);
     }
 
     /**
@@ -57,6 +57,6 @@ class ModelCollectionPrettyPrinter implements PrettyPrinterStrategy
         $modelName = strtolower(preg_replace('/([a-z])([A-Z])/', '$1_$2', $name)).'_collection';
         $parameters[$modelName] = $model;
 
-        return $this->twig->render('collection/'.$modelName.'.twig', $parameters);
+        return $this->twig->render('collection/phpdoc/'.$modelName.'.twig', $parameters);
     }
 }

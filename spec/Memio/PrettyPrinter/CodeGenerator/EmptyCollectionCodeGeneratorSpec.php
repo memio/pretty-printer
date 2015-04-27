@@ -9,16 +9,16 @@
  * file that was distributed with this source code.
  */
 
-namespace spec\Memio\PrettyPrinter\PrettyPrinter;
+namespace spec\Memio\PrettyPrinter\CodeGenerator;
 
 use Memio\Model\Argument;
 use PhpSpec\ObjectBehavior;
 
-class EmptyCollectionPrettyPrinterSpec extends ObjectBehavior
+class EmptyCollectionCodeGeneratorSpec extends ObjectBehavior
 {
     function it_is_a_pretty_printer_strategy()
     {
-        $this->shouldImplement('Memio\PrettyPrinter\PrettyPrinter\PrettyPrinterStrategy');
+        $this->shouldImplement('Memio\PrettyPrinter\CodeGenerator\CodeGenerator');
     }
 
     function it_supports_empty_arrays()

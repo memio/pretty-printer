@@ -9,13 +9,13 @@
  * file that was distributed with this source code.
  */
 
-namespace spec\Memio\PrettyPrinter\PrettyPrinter;
+namespace spec\Memio\PrettyPrinter\CodeGenerator;
 
 use Memio\Model\Phpdoc\ParameterTag;
 use PhpSpec\ObjectBehavior;
 use Twig_Environment;
 
-class PhpdocCollectionPrettyPrinterSpec extends ObjectBehavior
+class PhpdocCollectionCodeGeneratorSpec extends ObjectBehavior
 {
     function let(Twig_Environment $twig)
     {
@@ -24,7 +24,7 @@ class PhpdocCollectionPrettyPrinterSpec extends ObjectBehavior
 
     function it_is_a_pretty_printer_strategy()
     {
-        $this->shouldImplement('Memio\PrettyPrinter\PrettyPrinter\PrettyPrinterStrategy');
+        $this->shouldImplement('Memio\PrettyPrinter\CodeGenerator\CodeGenerator');
     }
 
     function it_supports_array_of_phpdocs()

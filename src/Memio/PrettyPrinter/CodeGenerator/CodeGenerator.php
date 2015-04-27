@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Memio\PrettyPrinter\PrettyPrinter;
+namespace Memio\PrettyPrinter\CodeGenerator;
 
-interface PrettyPrinterStrategy
+interface CodeGenerator
 {
     /**
      * @param mixed $model
