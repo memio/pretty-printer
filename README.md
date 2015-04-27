@@ -26,6 +26,15 @@ We're going to generate a class with a constructor and two attributes:
 require __DIR__.'/vendor/autoload.php';
 
 use Memio\PrettyPrinter\PrettyPrinter;
+use Memio\PrettyPrinter\TwigExtension\Line\ContractLineStrategy;
+use Memio\PrettyPrinter\TwigExtension\Line\FileLineStrategy;
+use Memio\PrettyPrinter\TwigExtension\Line\Line;
+use Memio\PrettyPrinter\TwigExtension\Line\MethodPhpdocLineStrategy;
+use Memio\PrettyPrinter\TwigExtension\Line\ObjectLineStrategy;
+use Memio\PrettyPrinter\TwigExtension\Line\StructurePhpdocLineStrategy;
+use Memio\PrettyPrinter\TwigExtension\Type;
+use Memio\PrettyPrinter\TwigExtension\Whitespace;
+use Memio\PrettyPrinter\TwigTemplateEngine;
 use Memio\Model\File;
 use Memio\Model\Object;
 use Memio\Model\Property;
@@ -35,7 +44,19 @@ use Memio\Model\Argument;
 // Initialize the code generator
 $loader = new \Twig_Loader_Filesystem(__DIR__.'/templates');
 $twig = new \Twig_Environment($loader);
-$prettyPrinter = new PrettyPrinter($twig);
+
+$line = new Line();
+$line->add(new ContractLineStrategy());
+$line->add(new FileLineStrategy());
+$line->add(new MethodPhpdocLineStrategy());
+$line->add(new ObjectLineStrategy());
+$line->add(new StructurePhpdocLineStrategy());
+
+$twig->addExtension(new Type());
+$twig->addExtension(new Whitespace($line));
+
+$templateEngine = new TwigTemplateEngine($twig);
+$prettyPrinter = new PrettyPrinter($templateEngine);
 
 // Describe the code you want to generate using "Models"
 $myService = File::make('src/Vendor/Project/MyService.php')

@@ -12,14 +12,14 @@
 namespace spec\Memio\PrettyPrinter\CodeGenerator;
 
 use Memio\Model\Argument;
+use Memio\PrettyPrinter\TemplateEngine;
 use PhpSpec\ObjectBehavior;
-use Twig_Environment;
 
 class ModelCodeGeneratorSpec extends ObjectBehavior
 {
-    function let(Twig_Environment $twig)
+    function let(TemplateEngine $templateEngine)
     {
-        $this->beConstructedWith($twig);
+        $this->beConstructedWith($templateEngine);
     }
 
     function it_is_a_pretty_printer_strategy()
@@ -34,11 +34,11 @@ class ModelCodeGeneratorSpec extends ObjectBehavior
         $this->supports($argument, array())->shouldBe(true);
     }
 
-    function it_generates_code_using_root_templates(Twig_Environment $twig)
+    function it_generates_code_using_root_templates(TemplateEngine $templateEngine)
     {
         $argument = new Argument('string', 'filename');
 
-        $twig->render('argument.twig', array('argument' => $argument))->shouldBeCalled();
+        $templateEngine->render('argument', array('argument' => $argument))->shouldBeCalled();
 
         $this->generateCode($argument);
     }

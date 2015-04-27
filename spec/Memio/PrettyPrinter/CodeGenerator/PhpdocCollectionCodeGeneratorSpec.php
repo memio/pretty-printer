@@ -12,14 +12,14 @@
 namespace spec\Memio\PrettyPrinter\CodeGenerator;
 
 use Memio\Model\Phpdoc\ParameterTag;
+use Memio\PrettyPrinter\TemplateEngine;
 use PhpSpec\ObjectBehavior;
-use Twig_Environment;
 
 class PhpdocCollectionCodeGeneratorSpec extends ObjectBehavior
 {
-    function let(Twig_Environment $twig)
+    function let(TemplateEngine $templateEngine)
     {
-        $this->beConstructedWith($twig);
+        $this->beConstructedWith($templateEngine);
     }
 
     function it_is_a_pretty_printer_strategy()
@@ -35,13 +35,13 @@ class PhpdocCollectionCodeGeneratorSpec extends ObjectBehavior
         $this->supports($parameterTags, array())->shouldBe(true);
     }
 
-    function it_generates_code_using_collection_templates(Twig_Environment $twig)
+    function it_generates_code_using_collection_templates(TemplateEngine $templateEngine)
     {
         $parameterTag = new ParameterTag('string', 'filename');
         $parameterTags = array($parameterTag);
 
-        $twig->render(
-            'collection/phpdoc/parameter_tag_collection.twig',
+        $templateEngine->render(
+            'collection/phpdoc/parameter_tag_collection',
             array('parameter_tag_collection' => $parameterTags)
         )->shouldBeCalled();
 

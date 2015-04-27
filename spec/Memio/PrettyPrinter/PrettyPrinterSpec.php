@@ -14,47 +14,44 @@ namespace spec\Memio\PrettyPrinter;
 use Memio\Model\Argument;
 use Memio\Model\FullyQualifiedName;
 use Memio\Model\Method;
+use Memio\PrettyPrinter\TemplateEngine;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument as ProphecyArgument;
-use Twig_Environment;
 
 class PrettyPrinterSpec extends ObjectBehavior
 {
-    function let(Twig_Environment $twig)
+    function let(TemplateEngine $templateEngine)
     {
-        $twig->addExtension(ProphecyArgument::any())->shouldBeCalled();
-
-        $this->beConstructedWith($twig);
+        $this->beConstructedWith($templateEngine);
     }
 
-    function it_handles_one_worded_model_class_names(Twig_Environment $twig)
+    function it_handles_one_worded_model_class_names(TemplateEngine $templateEngine)
     {
         $argument = new Argument('string', 'filename');
-        $twig->render('argument.twig', array('argument' => $argument))->shouldBeCalled();
+        $templateEngine->render('argument', array('argument' => $argument))->shouldBeCalled();
 
         $this->generateCode($argument);
     }
 
-    function it_handles_many_worded_model_class_names(Twig_Environment $twig)
+    function it_handles_many_worded_model_class_names(TemplateEngine $templateEngine)
     {
         $fullyQualifiedName = new FullyQualifiedName('Memio\PrettyPrinter\MyClass');
-        $twig->render('fully_qualified_name.twig', array('fully_qualified_name' => $fullyQualifiedName))->shouldBeCalled();
+        $templateEngine->render('fully_qualified_name', array('fully_qualified_name' => $fullyQualifiedName))->shouldBeCalled();
 
         $this->generateCode($fullyQualifiedName);
     }
 
-    function it_passes_extra_parameters_to_template(Twig_Environment $twig)
+    function it_passes_extra_parameters_to_template(TemplateEngine $templateEngine)
     {
         $argument = new Argument('int', 'total');
-        $twig->render('argument.twig', array('extra' => 'parameter', 'argument' => $argument))->shouldBeCalled();
+        $templateEngine->render('argument', array('extra' => 'parameter', 'argument' => $argument))->shouldBeCalled();
 
         $this->generateCode($argument, array('extra' => 'parameter'));
     }
 
-    function it_handles_collections(Twig_Environment $twig)
+    function it_handles_collections(TemplateEngine $templateEngine)
     {
         $collection = array(new Argument('bool', 'isObject'));
-        $twig->render('collection/argument_collection.twig', array('argument_collection' => $collection))->shouldBeCalled();
+        $templateEngine->render('collection/argument_collection', array('argument_collection' => $collection))->shouldBeCalled();
 
         $this->generateCode($collection);
     }

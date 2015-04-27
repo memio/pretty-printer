@@ -12,14 +12,14 @@
 namespace spec\Memio\PrettyPrinter\CodeGenerator;
 
 use Memio\Model\Phpdoc\LicensePhpdoc;
+use Memio\PrettyPrinter\TemplateEngine;
 use PhpSpec\ObjectBehavior;
-use Twig_Environment;
 
 class PhpdocCodeGeneratorSpec extends ObjectBehavior
 {
-    function let(Twig_Environment $twig)
+    function let(TemplateEngine $templateEngine)
     {
-        $this->beConstructedWith($twig);
+        $this->beConstructedWith($templateEngine);
     }
 
     function it_is_a_pretty_printer_strategy()
@@ -34,11 +34,11 @@ class PhpdocCodeGeneratorSpec extends ObjectBehavior
         $this->supports($licensePhpdoc, array())->shouldBe(true);
     }
 
-    function it_generates_code_using_phpdoc_templates(Twig_Environment $twig)
+    function it_generates_code_using_phpdoc_templates(TemplateEngine $templateEngine)
     {
         $licensePhpdoc = new LicensePhpdoc('Memio', 'author','author@example.com');
 
-        $twig->render('phpdoc/license_phpdoc.twig', array('license_phpdoc' => $licensePhpdoc))->shouldBeCalled();
+        $templateEngine->render('phpdoc/license_phpdoc', array('license_phpdoc' => $licensePhpdoc))->shouldBeCalled();
 
         $this->generateCode($licensePhpdoc);
     }

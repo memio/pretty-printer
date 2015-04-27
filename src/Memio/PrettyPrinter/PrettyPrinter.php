@@ -17,15 +17,6 @@ use Memio\PrettyPrinter\CodeGenerator\ModelCollectionCodeGenerator;
 use Memio\PrettyPrinter\CodeGenerator\ModelCodeGenerator;
 use Memio\PrettyPrinter\CodeGenerator\PhpdocCollectionCodeGenerator;
 use Memio\PrettyPrinter\CodeGenerator\PhpdocCodeGenerator;
-use Memio\PrettyPrinter\TwigExtension\Line\ContractLineStrategy;
-use Memio\PrettyPrinter\TwigExtension\Line\FileLineStrategy;
-use Memio\PrettyPrinter\TwigExtension\Line\Line;
-use Memio\PrettyPrinter\TwigExtension\Line\MethodPhpdocLineStrategy;
-use Memio\PrettyPrinter\TwigExtension\Line\ObjectLineStrategy;
-use Memio\PrettyPrinter\TwigExtension\Line\StructurePhpdocLineStrategy;
-use Memio\PrettyPrinter\TwigExtension\Type;
-use Memio\PrettyPrinter\TwigExtension\Whitespace;
-use Twig_Environment;
 
 /**
  * @api
@@ -38,27 +29,17 @@ class PrettyPrinter
     private $codeGenerators = array();
 
     /**
-     * @param Twig_Environment $twig
+     * @param TemplateEngine $templateEngine
      *
      * @api
      */
-    public function __construct(Twig_Environment $twig)
+    public function __construct(TemplateEngine $templateEngine)
     {
-        $line = new Line();
-        $line->add(new ContractLineStrategy());
-        $line->add(new FileLineStrategy());
-        $line->add(new MethodPhpdocLineStrategy());
-        $line->add(new ObjectLineStrategy());
-        $line->add(new StructurePhpdocLineStrategy());
-
-        $twig->addExtension(new Type());
-        $twig->addExtension(new Whitespace($line));
-
         $this->codeGenerators[] = new EmptyCollectionCodeGenerator();
-        $this->codeGenerators[] = new PhpdocCollectionCodeGenerator($twig);
-        $this->codeGenerators[] = new ModelCollectionCodeGenerator($twig);
-        $this->codeGenerators[] = new PhpdocCodeGenerator($twig);
-        $this->codeGenerators[] = new ModelCodeGenerator($twig);
+        $this->codeGenerators[] = new PhpdocCollectionCodeGenerator($templateEngine);
+        $this->codeGenerators[] = new ModelCollectionCodeGenerator($templateEngine);
+        $this->codeGenerators[] = new PhpdocCodeGenerator($templateEngine);
+        $this->codeGenerators[] = new ModelCodeGenerator($templateEngine);
     }
 
     /**

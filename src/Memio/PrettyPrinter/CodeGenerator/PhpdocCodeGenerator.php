@@ -12,21 +12,21 @@
 namespace Memio\PrettyPrinter\CodeGenerator;
 
 use Memio\Model\FullyQualifiedName;
-use Twig_Environment;
+use Memio\PrettyPrinter\TemplateEngine;
 
 class PhpdocCodeGenerator implements CodeGenerator
 {
     /**
-     * @var Twig_Environment
+     * @var TemplateEngine
      */
-    private $twig;
+    private $templateEngine;
 
     /**
-     * @param Twig_Environment $twig_Environment
+     * @param TemplateEngine $templateEngine
      */
-    public function __construct(Twig_Environment $twig)
+    public function __construct(TemplateEngine $templateEngine)
     {
-        $this->twig = $twig;
+        $this->templateEngine = $templateEngine;
     }
 
     /**
@@ -52,6 +52,6 @@ class PhpdocCodeGenerator implements CodeGenerator
         $modelName = strtolower(preg_replace('/([a-z])([A-Z])/', '$1_$2', $name));
         $parameters[$modelName] = $model;
 
-        return $this->twig->render('phpdoc/'.$modelName.'.twig', $parameters);
+        return $this->templateEngine->render('phpdoc/'.$modelName, $parameters);
     }
 }
