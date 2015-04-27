@@ -33,6 +33,6 @@ class TwigTemplateEngine implements TemplateEngine
      */
     public function render($template, array $parameters = array())
     {
-        $this->twig->render($template.'.twig', $parameters);
+        return $this->twig->render($template.'.twig', $parameters);
     }
 }
