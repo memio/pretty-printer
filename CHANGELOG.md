@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.0.0: TwigTemplateEngine extraction
+
+* extracted TwigTemplateEngine in its own package
+
 ## 1.0.0-rc5: Allowed template over loading
 
 * added `PrettyPrinter#addTemplatePath`
