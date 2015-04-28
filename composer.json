@@ -19,8 +19,7 @@
     }},
     "require": {
         "memio/model": "~1.0",
-        "php": ">=5.3.3",
-        "twig/twig": "~1.18"
+        "php": ">=5.3.3"
     },
     "require-dev": {
         "ciaranmcnulty/phpspec-typehintedmethods": "~1.1",
