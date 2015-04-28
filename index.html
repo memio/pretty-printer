@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title></title>
+
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/css/highlight.dark.css">
+        <link rel="stylesheet" href="/css/main.css">
+    </head>
+    <body>
+
+        <header class="navbar navbar-default navbar-fixed-top">
+
+            <a class="navbar-brand" href="/">
+                The title
+                <small class="hidden-xs hidden-sm">
+                    This is the default subtitle!
+                </small>
+            </a>
+
+            
+        </header>
+
+        <main class="container">
+            <div class="row">
+
+                
+                <section id="content" class="col-sm-12">
+                    <h1>Memio's PrettyPrinter <a href="https://insight.sensiolabs.com/projects/c8194cd1-0f80-4bce-9ab2-8368db5411b3"><img src="https://insight.sensiolabs.com/projects/c8194cd1-0f80-4bce-9ab2-8368db5411b3/mini.png" alt="SensioLabsInsight" /></a> <a href="https://travis-ci.org/memio/pretty-printer"><img src="https://travis-ci.org/memio/pretty-printer.png" alt="Travis CI" /></a></h1>
+<p><code>PrettyPrinter</code> is a code generator (printer) that takes a Model and calls the
+appropriate <code>TemplateEngine</code> to actually generate the corresponding code,
+using highly opinionated coding standards (pretty).</p>
+<p><code>PrettyPrinter</code> returns a string that can be saved in a file, dislpayed on a
+console output or displayed in a web page. Possibilities are endless!</p>
+<blockquote>
+<p><strong>Note</strong>: This package is part of <a href="http://memio.github.io/memio">Memio</a>.
+Have a look at <a href="http://github.com/memio/memio">the main repository</a>.</p>
+</blockquote>
+<h2>Installation</h2>
+<p>Install it using <a href="https://getcomposer.org/download">Composer</a>:</p>
+<pre><code>composer require memio/pretty-printer:~1.0</code></pre>
+<h2>Want to know more?</h2>
+<p>Memio uses <a href="http://phpspec.net/">phpspec</a>, which means the tests also provide the documentation.
+Not convinced? Then clone this repository and run the following commands:</p>
+<pre><code>composer install
+./vendor/bin/phpspec run -n -f pretty</code></pre>
+<p>You can see the current and past versions using one of the following:</p>
+<ul>
+<li>the <code>git tag</code> command</li>
+<li>the <a href="https://github.com/memio/memio/releases">releases page on Github</a></li>
+<li>the file listing the <a href="CHANGELOG.html">changes between versions</a></li>
+</ul>
+<p>And finally some meta documentation:</p>
+<ul>
+<li><a href="LICENSE">copyright and MIT license</a></li>
+<li><a href="VERSIONING.html">versioning and branching models</a></li>
+<li><a href="CONTRIBUTING.html">contribution instructions</a></li>
+</ul>
+                </section>
+
+            </div>
+        </main>
+
+        <footer>
+            <div class="container">
+                <p class="text-muted">
+                    website generated with <a href="http://couscous.io" title="Markdown website generator">Couscous</a>
+                </p>
+            </div>
+        </footer>
+
+        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+        <script src="http://yastatic.net/highlightjs/8.2/highlight.min.js"></script>
+
+        <script>
+            $(function() {
+                $("section>h1").wrap('<div class="page-header" />');
+                // Syntax highlighting
+                hljs.initHighlightingOnLoad();
+            });
+        </script>
+
+    </body>
+</html>

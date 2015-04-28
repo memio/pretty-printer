@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title></title>
+
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/css/highlight.dark.css">
+        <link rel="stylesheet" href="/css/main.css">
+    </head>
+    <body>
+
+        <header class="navbar navbar-default navbar-fixed-top">
+
+            <a class="navbar-brand" href="/">
+                The title
+                <small class="hidden-xs hidden-sm">
+                    This is the default subtitle!
+                </small>
+            </a>
+
+            
+        </header>
+
+        <main class="container">
+            <div class="row">
+
+                
+                <section id="content" class="col-sm-12">
+                    <h1>How to contribute</h1>
+<p>Everybody should be able to help. Here's how you can make this project more
+awesome:</p>
+<ol>
+<li><a href="https://github.com/memio/pretty-printer/fork_select">Fork it</a></li>
+<li>improve it</li>
+<li>submit a <a href="https://help.github.com/articles/creating-a-pull-request">pull request</a></li>
+</ol>
+<p>Your work will then be reviewed as soon as possible (suggestions about some
+changes, improvements or alternatives may be given).</p>
+<p>Here's some tips to make you the best contributor ever:</p>
+<ul>
+<li><a href="#standard-code">Standard code</a></li>
+<li><a href="#specifications">Specifications</a></li>
+<li><a href="#keeping-your-fork-up-to-date">Keeping your fork up-to-date</a></li>
+</ul>
+<h2>Standard code</h2>
+<p>Use <a href="http://cs.sensiolabs.org/">PHP CS fixer</a> to make your code compliant with
+Memio PrettyPrinter's coding standards:</p>
+<pre><code>./vendor/bin/php-cs-fixer fix --config=sf23 .</code></pre>
+<h2>Specifications</h2>
+<p>Memio PrettyPrinter drives its development using <a href="http://www.phpspec.net/">phpspec</a>:</p>
+<pre><code># Generate the specification class:
+phpspec describe 'Memio\Memio\MyNewClass'
+
+# Customize the specification class:
+$EDITOR tests/spec/Memio/pretty-printer/MyNewClass.php
+
+# Generate the specified class:
+phpspec run
+
+# Customize the class:
+$EDITOR src/Memio/pretty-printer/MyNewClass.php
+
+phpspec run # Should be green!</code></pre>
+<h2>Keeping your fork up-to-date</h2>
+<p>To keep your fork up-to-date, you should track the upstream (original) one
+using the following command:</p>
+<pre><code>git remote add upstream https://github.com/memio/pretty-printer.git</code></pre>
+<p>Then get the upstream changes:</p>
+<pre><code>git checkout master
+git pull --rebase origin master
+git pull --rebase upstream master
+git checkout &lt;your-branch&gt;
+git rebase master</code></pre>
+<p>Finally, publish your changes:</p>
+<pre><code>git push -f origin &lt;your-branch&gt;</code></pre>
+<p>Your pull request will be automatically updated.</p>
+                </section>
+
+            </div>
+        </main>
+
+        <footer>
+            <div class="container">
+                <p class="text-muted">
+                    website generated with <a href="http://couscous.io" title="Markdown website generator">Couscous</a>
+                </p>
+            </div>
+        </footer>
+
+        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+        <script src="http://yastatic.net/highlightjs/8.2/highlight.min.js"></script>
+
+        <script>
+            $(function() {
+                $("section>h1").wrap('<div class="page-header" />');
+                // Syntax highlighting
+                hljs.initHighlightingOnLoad();
+            });
+        </script>
+
+    </body>
+</html>

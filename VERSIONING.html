@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title></title>
+
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/css/highlight.dark.css">
+        <link rel="stylesheet" href="/css/main.css">
+    </head>
+    <body>
+
+        <header class="navbar navbar-default navbar-fixed-top">
+
+            <a class="navbar-brand" href="/">
+                The title
+                <small class="hidden-xs hidden-sm">
+                    This is the default subtitle!
+                </small>
+            </a>
+
+            
+        </header>
+
+        <main class="container">
+            <div class="row">
+
+                
+                <section id="content" class="col-sm-12">
+                    <h1>Versioning and branching models</h1>
+<p>This file explains the versioning and branching models of this project.</p>
+<h2>Versioning</h2>
+<p>The versioning is inspired by <a href="http://semver.org/">Semantic Versioning</a>:</p>
+<blockquote>
+<p>Given a version number MAJOR.MINOR.PATCH, increment the:</p>
+<ol>
+<li>MAJOR version when you make incompatible API changes</li>
+<li>MINOR version when you add functionality in a backwards-compatible manner</li>
+<li>PATCH version when you make backwards-compatible bug fixes</li>
+</ol>
+</blockquote>
+<h3>Public API</h3>
+<p>Classes and methods marked with the <code>@api</code> tag are considered to be the public
+API of this project.</p>
+<h2>Branching Model</h2>
+<p>The branching is inspired by <a href="https://github.com/jbenet">@jbenet</a>
+<a href="https://gist.github.com/jbenet/ee6c9ac48068889b0912">simple git branching model</a>:</p>
+<blockquote>
+<ol>
+<li><code>master</code> must always be deployable.</li>
+<li><strong>all changes</strong> are made through feature branches (pull-request + merge)</li>
+<li>rebase to avoid/resolve conflicts; merge in to <code>master</code></li>
+</ol>
+</blockquote>
+                </section>
+
+            </div>
+        </main>
+
+        <footer>
+            <div class="container">
+                <p class="text-muted">
+                    website generated with <a href="http://couscous.io" title="Markdown website generator">Couscous</a>
+                </p>
+            </div>
+        </footer>
+
+        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+        <script src="http://yastatic.net/highlightjs/8.2/highlight.min.js"></script>
+
+        <script>
+            $(function() {
+                $("section>h1").wrap('<div class="page-header" />');
+                // Syntax highlighting
+                hljs.initHighlightingOnLoad();
+            });
+        </script>
+
+    </body>
+</html>

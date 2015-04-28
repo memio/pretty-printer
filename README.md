@@ -1,37 +1,65 @@
-# Memio's PrettyPrinter [![SensioLabsInsight](https://insight.sensiolabs.com/projects/c8194cd1-0f80-4bce-9ab2-8368db5411b3/mini.png)](https://insight.sensiolabs.com/projects/c8194cd1-0f80-4bce-9ab2-8368db5411b3) [![Travis CI](https://travis-ci.org/memio/pretty-printer.png)](https://travis-ci.org/memio/pretty-printer)
+---
+currentMenu: home
+---
+# Couscous Light template
 
-`PrettyPrinter` is a code generator (printer) that takes a Model and calls the
-appropriate `TemplateEngine` to actually generate the corresponding code,
-using highly opinionated coding standards (pretty).
+![](screenshot.png)
 
-`PrettyPrinter` returns a string that can be saved in a file, dislpayed on a
-console output or displayed in a web page. Possibilities are endless!
+## Usage
 
-> **Note**: This package is part of [Memio](http://memio.github.io/memio).
-> Have a look at [the main repository](http://github.com/memio/memio).
+To use the template, set it up in your `couscous.yml` configuration file:
 
-## Installation
+```yaml
+template:
+    url: https://github.com/CouscousPHP/Template-Light
+```
 
-Install it using [Composer](https://getcomposer.org/download):
+## Configuration
 
-    composer require memio/pretty-printer:~1.0
+Here are all the variables you can set in your `couscous.yml`:
 
-## Want to know more?
+```yaml
+# Base URL of the published website
+baseUrl: http://username.github.io/project
 
-Memio uses [phpspec](http://phpspec.net/), which means the tests also provide the documentation.
-Not convinced? Then clone this repository and run the following commands:
+# Used to link to the GitHub project
+github:
+    user: myself
+    repo: my-project
 
-    composer install
-    ./vendor/bin/phpspec run -n -f pretty
+title: My project
+subTitle: This is a great project.
 
-You can see the current and past versions using one of the following:
+# The left menu bar
+menu:
+    items:
+        home:
+            text: Home page
+            # You can use relative urls
+            relativeUrl: doc/faq.html
+        foo:
+            text: Another link
+            # Or absolute urls
+            absoluteUrl: https://example.com
+```
 
-* the `git tag` command
-* the [releases page on Github](https://github.com/memio/memio/releases)
-* the file listing the [changes between versions](CHANGELOG.md)
+Note that the menu items can also contain HTML:
 
-And finally some meta documentation:
+```yaml
+home:
+    text: "<i class=\"fa fa-github\"></i> Home page"
+    relativeUrl: doc/faq.html
+```
 
-* [copyright and MIT license](LICENSE)
-* [versioning and branching models](VERSIONING.md)
-* [contribution instructions](CONTRIBUTING.md)
+## Menu
+
+To set the current menu item (i.e. highlighted menu item), set the `currentMenu`
+key in the Markdown files:
+
+```markdown
+---
+currentMenu: home
+---
+
+# Welcome
+```
