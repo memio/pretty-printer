@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.0.1: Removed unused namesapce autoloading
+
+* removed Config from namespace autoloading
+
 ## 1.0.0: TwigTemplateEngine extraction
 
 * extracted TwigTemplateEngine in its own package
