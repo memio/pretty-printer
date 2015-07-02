@@ -4,7 +4,7 @@
 appropriate `TemplateEngine` to actually generate the corresponding code,
 using highly opinionated coding standards (pretty).
 
-`PrettyPrinter` returns a string that can be saved in a file, dislpayed on a
+`PrettyPrinter` returns a string that can be saved in a file, displayed on a
 console output or displayed in a web page. Possibilities are endless!
 
 > **Note**: This package is part of [Memio](http://memio.github.io/memio).
