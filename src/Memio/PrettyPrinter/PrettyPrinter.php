@@ -49,14 +49,18 @@ class PrettyPrinter
         $this->templateEngine = $templateEngine;
     }
 
+
     /**
      * @param string $templatePath
      *
      * @api
+     * @return $this
      */
     public function addTemplatePath($templatePath)
     {
         $this->templateEngine->addPath($templatePath);
+
+        return $this;
     }
 
     /**
