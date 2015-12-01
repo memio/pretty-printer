@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 1.0.3: Updated dependencies
+
+* added support to PHP 7
+
+## 1.0.2: Fluent interfaces
+
+* added fluent interface to addTemplatePath
+
 ## 1.0.1: Removed unused namesapce autoloading
 
 * removed Config from namespace autoloading
