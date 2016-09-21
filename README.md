@@ -14,7 +14,7 @@ console output or displayed in a web page. Possibilities are endless!
 
 Install it using [Composer](https://getcomposer.org/download):
 
-    composer require memio/pretty-printer:~1.0
+    composer require memio/pretty-printer:^2.0@alpha
 
 ## Want to know more?
 
