@@ -13,7 +13,6 @@ namespace spec\Memio\PrettyPrinter;
 
 use Memio\Model\Argument;
 use Memio\Model\FullyQualifiedName;
-use Memio\Model\Method;
 use Memio\PrettyPrinter\Exception\InvalidArgumentException;
 use Memio\PrettyPrinter\TemplateEngine;
 use PhpSpec\ObjectBehavior;

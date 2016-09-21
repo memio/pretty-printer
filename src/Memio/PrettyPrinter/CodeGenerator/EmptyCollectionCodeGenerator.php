@@ -15,7 +15,7 @@ class EmptyCollectionCodeGenerator implements CodeGenerator
 {
     public function supports($model) : bool
     {
-        return (is_array($model) && empty($model));
+        return is_array($model) && empty($model);
     }
 
     public function generateCode($model, array $parameters = []) : string

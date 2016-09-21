@@ -40,7 +40,6 @@ class PrettyPrinter
         $this->templateEngine = $templateEngine;
     }
 
-
     /**
      * @api
      */

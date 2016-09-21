@@ -11,7 +11,6 @@
 
 namespace spec\Memio\PrettyPrinter\CodeGenerator;
 
-use Memio\Model\Argument;
 use Memio\PrettyPrinter\CodeGenerator\CodeGenerator;
 use PhpSpec\ObjectBehavior;
 
