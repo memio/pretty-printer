@@ -13,18 +13,12 @@ namespace Memio\PrettyPrinter\CodeGenerator;
 
 class EmptyCollectionCodeGenerator implements CodeGenerator
 {
-    /**
-     * {@inheritDoc}
-     */
-    public function supports($model)
+    public function supports($model) : bool
     {
         return (is_array($model) && empty($model));
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    public function generateCode($model, array $parameters = array())
+    public function generateCode($model, array $parameters = []) : string
     {
         return '';
     }

@@ -18,7 +18,7 @@
     }},
     "require": {
         "memio/model": "^1.0",
-        "php": "^5.3|^7.0"
+        "php": "^7.0"
     },
     "require-dev": {
         "fabpot/php-cs-fixer": "^1.6",

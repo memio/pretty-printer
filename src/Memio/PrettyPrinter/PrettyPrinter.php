@@ -23,19 +23,10 @@ use Memio\PrettyPrinter\CodeGenerator\PhpdocCodeGenerator;
  */
 class PrettyPrinter
 {
-    /**
-     * @var array
-     */
-    private $codeGenerators = array();
-
-    /**
-     * @var TemplateEngine
-     */
+    private $codeGenerators = [];
     private $templateEngine;
 
     /**
-     * @param TemplateEngine $templateEngine
-     *
      * @api
      */
     public function __construct(TemplateEngine $templateEngine)
@@ -51,12 +42,9 @@ class PrettyPrinter
 
 
     /**
-     * @param string $templatePath
-     *
      * @api
-     * @return $this
      */
-    public function addTemplatePath($templatePath)
+    public function addTemplatePath(string $templatePath) : self
     {
         $this->templateEngine->addPath($templatePath);
 
@@ -64,16 +52,11 @@ class PrettyPrinter
     }
 
     /**
-     * @param mixed $model
-     * @param array $parameters
-     *
-     * @return string
-     *
      * @throws InvalidArgumentException If the given model and parameters aren't supported
      *
      * @api
      */
-    public function generateCode($model, array $parameters = array())
+    public function generateCode($model, array $parameters = []) : string
     {
         foreach ($this->codeGenerators as $codeGenerator) {
             if ($codeGenerator->supports($model, $parameters)) {
