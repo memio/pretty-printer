@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## 2.0.0-alpha1: PHP 7
+## 2.0.0-alpha1, 2.0.0-alpha2: PHP 7
 
 * dropped support for PHP < 7
 
