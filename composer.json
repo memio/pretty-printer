@@ -17,7 +17,7 @@
         "Memio\\PrettyPrinter\\": "src/Memio/PrettyPrinter"
     }},
     "require": {
-        "memio/model": "dev-version-2",
+        "memio/model": "^2.0@alpha",
         "php": "^7.0"
     },
     "require-dev": {
