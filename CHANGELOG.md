@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 2.0.0-alpha1, 2.0.0-alpha2: PHP 7
+
+* dropped support for PHP < 7
+
 ## 1.0.3: Updated dependencies
 
 * added support to PHP 7

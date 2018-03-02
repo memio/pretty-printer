@@ -16,23 +16,14 @@ use Memio\PrettyPrinter\TemplateEngine;
 
 class PhpdocCodeGenerator implements CodeGenerator
 {
-    /**
-     * @var TemplateEngine
-     */
     private $templateEngine;
 
-    /**
-     * @param TemplateEngine $templateEngine
-     */
     public function __construct(TemplateEngine $templateEngine)
     {
         $this->templateEngine = $templateEngine;
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    public function supports($model)
+    public function supports($model): bool
     {
         if (!is_object($model)) {
             return false;
@@ -42,13 +33,10 @@ class PhpdocCodeGenerator implements CodeGenerator
         return 1 === preg_match('/^Memio\\\\Model\\\\Phpdoc\\\\/', $fqcn);
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    public function generateCode($model, array $parameters = array())
+    public function generateCode($model, array $parameters = []): string
     {
         $fqcn = get_class($model);
-        $name = FullyQualifiedName::make($fqcn)->getName();
+        $name = (new FullyQualifiedName($fqcn))->getName();
         $modelName = strtolower(preg_replace('/([a-z])([A-Z])/', '$1_$2', $name));
         $parameters[$modelName] = $model;
 

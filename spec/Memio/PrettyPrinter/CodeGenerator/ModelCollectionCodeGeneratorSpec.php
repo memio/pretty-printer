@@ -12,6 +12,7 @@
 namespace spec\Memio\PrettyPrinter\CodeGenerator;
 
 use Memio\Model\Argument;
+use Memio\PrettyPrinter\CodeGenerator\CodeGenerator;
 use Memio\PrettyPrinter\TemplateEngine;
 use PhpSpec\ObjectBehavior;
 
@@ -24,23 +25,25 @@ class ModelCollectionCodeGeneratorSpec extends ObjectBehavior
 
     function it_is_a_pretty_printer_strategy()
     {
-        $this->shouldImplement('Memio\PrettyPrinter\CodeGenerator\CodeGenerator');
+        $this->shouldImplement(CodeGenerator::class);
     }
 
     function it_supports_array_of_models()
     {
         $argument = new Argument('string', 'filename');
-        $arguments = array($argument);
+        $arguments = [$argument];
 
-        $this->supports($arguments, array())->shouldBe(true);
+        $this->supports($arguments, [])->shouldBe(true);
     }
 
     function it_generates_code_using_collection_templates(TemplateEngine $templateEngine)
     {
         $argument = new Argument('string', 'filename');
-        $arguments = array($argument);
+        $arguments = [$argument];
 
-        $templateEngine->render('collection/argument_collection', array('argument_collection' => $arguments))->shouldBeCalled();
+        $templateEngine->render('collection/argument_collection', [
+            'argument_collection' => $arguments,
+        ])->shouldBeCalled();
 
         $this->generateCode($arguments);
     }

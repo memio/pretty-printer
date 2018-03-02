@@ -11,23 +11,23 @@
 
 namespace spec\Memio\PrettyPrinter\CodeGenerator;
 
-use Memio\Model\Argument;
+use Memio\PrettyPrinter\CodeGenerator\CodeGenerator;
 use PhpSpec\ObjectBehavior;
 
 class EmptyCollectionCodeGeneratorSpec extends ObjectBehavior
 {
     function it_is_a_pretty_printer_strategy()
     {
-        $this->shouldImplement('Memio\PrettyPrinter\CodeGenerator\CodeGenerator');
+        $this->shouldImplement(CodeGenerator::class);
     }
 
     function it_supports_empty_arrays()
     {
-        $this->supports(array(), array())->shouldBe(true);
+        $this->supports([], [])->shouldBe(true);
     }
 
     function it_generates_an_empty_string()
     {
-        $this->generateCode(array())->shouldBe('');
+        $this->generateCode([])->shouldBe('');
     }
 }
