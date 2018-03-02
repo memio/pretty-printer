@@ -43,7 +43,7 @@ class PrettyPrinter
     /**
      * @api
      */
-    public function addTemplatePath(string $templatePath) : self
+    public function addTemplatePath(string $templatePath): self
     {
         $this->templateEngine->addPath($templatePath);
 
@@ -55,7 +55,7 @@ class PrettyPrinter
      *
      * @api
      */
-    public function generateCode($model, array $parameters = []) : string
+    public function generateCode($model, array $parameters = []): string
     {
         foreach ($this->codeGenerators as $codeGenerator) {
             if ($codeGenerator->supports($model, $parameters)) {

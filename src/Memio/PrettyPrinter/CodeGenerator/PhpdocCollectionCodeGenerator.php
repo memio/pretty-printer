@@ -23,7 +23,7 @@ class PhpdocCollectionCodeGenerator implements CodeGenerator
         $this->templateEngine = $templateEngine;
     }
 
-    public function supports($model) : bool
+    public function supports($model): bool
     {
         if (!is_array($model)) {
             return false;
@@ -37,7 +37,7 @@ class PhpdocCollectionCodeGenerator implements CodeGenerator
         return 1 === preg_match('/^Memio\\\\Model\\\\Phpdoc\\\\/', $fqcn);
     }
 
-    public function generateCode($model, array $parameters = []) : string
+    public function generateCode($model, array $parameters = []): string
     {
         $firstElement = current($model);
         $fqcn = get_class($firstElement);

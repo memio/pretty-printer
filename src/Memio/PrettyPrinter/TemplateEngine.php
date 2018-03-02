@@ -14,5 +14,6 @@ namespace Memio\PrettyPrinter;
 interface TemplateEngine
 {
     public function addPath(string $path);
-    public function render(string $template, array $parameters = []) : string;
+
+    public function render(string $template, array $parameters = []): string;
 }

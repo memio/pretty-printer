@@ -17,11 +17,11 @@
         "Memio\\PrettyPrinter\\": "src/Memio/PrettyPrinter"
     }},
     "require": {
-        "memio/model": "^2.0@alpha",
+        "memio/model": "^2.0",
         "php": "^7.0"
     },
     "require-dev": {
-        "friendsofphp/php-cs-fixer": "^1.6",
-        "phpspec/phpspec": "^3.0"
+        "friendsofphp/php-cs-fixer": "^2.10",
+        "phpspec/phpspec": "^4.3"
     }
 }

@@ -13,6 +13,7 @@ namespace Memio\PrettyPrinter\CodeGenerator;
 
 interface CodeGenerator
 {
-    public function supports($model) : bool;
-    public function generateCode($model, array $parameters = []) : string;
+    public function supports($model): bool;
+
+    public function generateCode($model, array $parameters = []): string;
 }
