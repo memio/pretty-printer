@@ -21,7 +21,7 @@
         "php": "^7.2 || ^8.0"
     },
     "require-dev": {
-        "friendsofphp/php-cs-fixer": "^2.10",
+        "friendsofphp/php-cs-fixer": "^2.19.3",
         "phpspec/phpspec": "^6.1 || ^7.0"
     }
 }
