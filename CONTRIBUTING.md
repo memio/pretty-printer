@@ -12,9 +12,21 @@ changes, improvements or alternatives may be given).
 
 Here's some tips to make you the best contributor ever:
 
+* [Getting started](#getting-started)
 * [Standard code](#standard-code)
 * [Specifications](#specifications)
+* [Full QA check](#full-qa-check)
 * [Keeping your fork up-to-date](#keeping-your-fork-up-to-date)
+
+## Getting started
+
+First, set up your local environment:
+
+```console
+make lib-init
+```
+
+> **Note**: Run `make` or `make help` to see all available commands.
 
 ## Standard code
 
@@ -22,7 +34,7 @@ Use [PHP CS fixer](http://cs.sensiolabs.org/) to make your code compliant with
 Memio's coding standards:
 
 ```console
-$ ./vendor/bin/php-cs-fixer fix .
+make cs-fix
 ```
 
 ## Specifications
@@ -32,34 +44,42 @@ Memio drives its development using [phpspec](http://www.phpspec.net/).
 First bootstrap the code for the Specification:
 
 ```console
-$ phpspec describe 'Memio\PrettyPrinter\MyNewUseCase'
+make phpspec arg="describe 'Memio\PrettyPrinter\MyNewClass'"
 ```
 
 Next, write the actual code of the Specification:
 
 ```console
-$ $EDITOR spec/Memio/PrettyPrinter/MyNewUseCase.php
+$EDITOR spec/Memio/PrettyPrinter/MyNewClassSpec.php
 ```
 
-Then bootstrap the code for the corresponding Use Case:
+Then bootstrap the code for the corresponding class:
 
 ```console
-$ phpspec run
+make phpspec
 ```
 
-Follow that by writing the actual code of the Use Case:
+Follow that by writing the actual code of the class:
 
 ```console
-$ $EDITOR src/Memio/PrettyPrinter/MyNewUseCase.php
+$EDITOR src/Memio/PrettyPrinter/MyNewClass.php
 ```
 
 Finally run the specification:
 
 ```console
-$ phpspec run
+make phpspec
 ```
 
 Results should be green!
+
+## Full QA check
+
+Before submitting your pull request, run the full QA pipeline:
+
+```console
+make lib-qa
+```
 
 ## Keeping your fork up-to-date
 
