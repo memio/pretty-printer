@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+# Pre-push hook to enforce "v" prefix on tags
+# This prevents pushing tags that don't start with "v"
+
+while read local_ref local_sha remote_ref remote_sha
+do
+    # Skip deletions
+    if [[ $local_sha == "0000000000000000000000000000000000000000" ]]; then
+        continue
+    fi
+
+    # Check if this is a tag being pushed
+    if [[ $local_ref =~ ^refs/tags/ ]]; then
+        tag_name="${local_ref#refs/tags/}"
+
+        # Check if tag starts with "v"
+        if [[ ! $tag_name =~ ^v ]]; then
+            echo "Error: Tag '$tag_name' does not start with 'v' prefix"
+            echo "Please create tags with 'v' prefix (e.g., v1.0.0, v3.0.2)"
+            echo ""
+            echo "To fix this:"
+            echo "  1. Delete the tag: git tag -d $tag_name"
+            echo "  2. Create it with 'v' prefix: git tag v$tag_name"
+            echo "  3. Push again: git push --tags"
+            exit 1
+        fi
+
+        echo "[OK] Tag '$tag_name' has correct 'v' prefix"
+    fi
+done
+
+exit 0

@@ -14,9 +14,7 @@ console output or displayed in a web page. Possibilities are endless!
 
 Install it using [Composer](https://getcomposer.org/download):
 
-```console
-$ composer require memio/pretty-printer:^3.0
-```
+    composer require memio/pretty-printer:^3.0
 
 ## Want to know more?
 
@@ -24,9 +22,11 @@ Memio uses [phpspec](http://phpspec.net/), which means the tests also provide th
 Not convinced? Then clone this repository and run the following commands:
 
 ```console
-$ composer install
-$ ./vendor/bin/phpspec run -n -f pretty
+make lib-init                        # Set up Docker environment
+make phpspec arg='--format pretty'   # Run the specifications
 ```
+
+> **Note**: Run `make` or `make help` to see all available commands.
 
 You can see the current and past versions using one of the following:
 

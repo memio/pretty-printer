@@ -11,12 +11,12 @@
 
 namespace Memio\PrettyPrinter;
 
-use Memio\PrettyPrinter\Exception\InvalidArgumentException;
 use Memio\PrettyPrinter\CodeGenerator\EmptyCollectionCodeGenerator;
-use Memio\PrettyPrinter\CodeGenerator\ModelCollectionCodeGenerator;
 use Memio\PrettyPrinter\CodeGenerator\ModelCodeGenerator;
-use Memio\PrettyPrinter\CodeGenerator\PhpdocCollectionCodeGenerator;
+use Memio\PrettyPrinter\CodeGenerator\ModelCollectionCodeGenerator;
 use Memio\PrettyPrinter\CodeGenerator\PhpdocCodeGenerator;
+use Memio\PrettyPrinter\CodeGenerator\PhpdocCollectionCodeGenerator;
+use Memio\PrettyPrinter\Exception\InvalidArgumentException;
 
 /**
  * @api
