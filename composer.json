@@ -17,12 +17,12 @@
         "Memio\\PrettyPrinter\\": "src/Memio/PrettyPrinter"
     }},
     "require": {
-        "memio/model": "^3.0",
-        "php": "^7.3 || ^8.0"
+        "memio/model": "^4.0@alpha",
+        "php": "^7.4 || ^8.0"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^2.19.3",
-        "phpspec/phpspec": "^6.1 || ^7.0",
+        "phpspec/phpspec": "^7.0",
         "phpstan/phpstan": "1.12.32",
         "rector/rector": "^1.2.10",
         "rector/swiss-knife": "^2.3"

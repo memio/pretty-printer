@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 4.0.0-alpha1: PHP 7.4 requirement
+
+* dropped support for PHP <7.4
+* upgraded memio/model to ^4.0
+
 ## 3.0.1: Dockerised dev environment
 
 * setup Github Actions

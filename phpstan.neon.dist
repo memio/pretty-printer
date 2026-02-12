@@ -3,6 +3,6 @@ includes:
 
 parameters:
   level: 0
-  phpVersion: 70300
+  phpVersion: 70400
   paths:
     - src/

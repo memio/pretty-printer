@@ -16,7 +16,7 @@ use Memio\PrettyPrinter\TemplateEngine;
 
 class PhpdocCollectionCodeGenerator implements CodeGenerator
 {
-    private $templateEngine;
+    private TemplateEngine $templateEngine;
 
     public function __construct(TemplateEngine $templateEngine)
     {

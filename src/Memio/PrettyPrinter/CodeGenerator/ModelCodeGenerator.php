@@ -16,7 +16,7 @@ use Memio\PrettyPrinter\TemplateEngine;
 
 class ModelCodeGenerator implements CodeGenerator
 {
-    private $templateEngine;
+    private TemplateEngine $templateEngine;
 
     public function __construct(TemplateEngine $templateEngine)
     {

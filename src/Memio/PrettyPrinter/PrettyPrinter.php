@@ -23,8 +23,8 @@ use Memio\PrettyPrinter\Exception\InvalidArgumentException;
  */
 class PrettyPrinter
 {
-    private $codeGenerators = [];
-    private $templateEngine;
+    private array $codeGenerators = [];
+    private TemplateEngine $templateEngine;
 
     /**
      * @api

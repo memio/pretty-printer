@@ -23,7 +23,7 @@ return RectorConfig::configure()
     ])
     ->withSets([
         // —— PHP ——————————————————————————————————————————————————————————————
-        SetList::PHP_73,
+        SetList::PHP_74,
     ])
     ->withRules([
     ]);
